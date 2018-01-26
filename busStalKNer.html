@@ -2,23 +2,24 @@
 <html>
   <head>
     <title>BusStalKNer</title>
-    <link rel="stylesheet" href="leaflet/leaflet.css"/>    
+    <link rel="stylesheet" href="leaflet/leaflet.css"/>
     <style type="text/css">
-      #map { 
-        height: 1000px; 
+      #map {
+        height: 1000px;
         width: 1000px;
       }
     </style>
     <script src="leaflet/leaflet.js"></script>
-    <script src="leaflet/leaflet-omnivore.min.js" ></script>
+    <script src="leaflet/leaflet-omnivore.min.js"></script>
+    <script type="text/javascript" src="leaflet/movingmarker.js"></script>
+
   </head>
   <body>
     <div id="map"></div>
      <script>
         var map = L.map('map').setView([47.660496, 9.173579], 14);
 
-        mapLink = 
-            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 
         var mapLayer = L.tileLayer(
             'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -33,9 +34,13 @@
         var buslinienLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);
 
 
+        var myMovingMarker = L.Marker.movingMarker([[47.660496, 9.173579],[47.664879, 9.208797]],
+        						[20000]).addTo(map);
+        myMovingMarker.start();
+
     </script>
   </body>
 
- 
+
 
 </html>
