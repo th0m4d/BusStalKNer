@@ -6,6 +6,14 @@
         {
           "time": {
             "hour":5,
+            "min":0
+          },
+          "name":"Staadt/Autofähre",
+          "kurzname": "STAAD1"
+        },
+		{
+          "time": {
+            "hour":5,
             "min":1
           },
           "name":"Allmannsdorf",
@@ -24,7 +32,7 @@
             "hour":5, 
             "min":3
           },
-          "name":"Tannerhof",
+          "name":"Tannenhof",
           "kurzname": "TANNEN1"
         },
         {
@@ -34,7 +42,159 @@
           },
           "name":"Salzberg",
           "kurzname": "SALZBER1"
-        }
+        },
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":5
+		  },
+		  "name":"Klinikum Konstanz",
+		  "kurzname": "KRANKEN"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":6
+		  },
+		  "name":"Sternenplatz",
+		  "kurzname": "STERNEN1"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":7
+		  },
+		  "name":"Schottenplatz",
+		  "kurzname": "SCHOTTEN"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":8
+		  },
+		  "name":"Bürgerbüro",
+		  "kurzname": "BÜRGER"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":9
+		  },
+		  "name":"Lutherplatz",
+		  "kurzname": "LUTHER"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":11
+		  },
+		  "name":"Schultheißstraße",
+		  "kurzname": "SCHULTH1"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":12
+		  },
+		  "name":"Döbelestraße",
+		  "kurzname": "DÖBELE1"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":12
+		  },
+		  "name":"Döbele",
+		  "kurzname": "DÖBELE"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":13
+		  },
+		  "name":"Schnetztor",
+		  "kurzname": "SCHNETZ"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":14
+		  },
+		  "name":"Bodanplatz",
+		  "kurzname": "BODAN"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":15
+		  },
+		  "name":"Bahnhof",
+		  "kurzname": "BHF"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":16
+		  },
+		  "name":"Konzilstr./Theater",
+		  "kurzname": "KONZIL"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":17
+		  },
+		  "name":"Sternenplatz",
+		  "kurzname": "STERNEN2"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":18
+		  },
+		  "name":"Klinikum Konstanz",
+		  "kurzname": "KLINIKUM2"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":19
+		  },
+		  "name":"Salzberg",
+		  "kurzname": "SALZBER2"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":20
+		  },
+		  "name":"Tannenhof",
+		  "kurzname": "TANNEN2"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":21
+		  },
+		  "name":"An der Steig",
+		  "kurzname": "STEIG2"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":22
+		  },
+		  "name":"Allmansdorf",
+		  "kurzname": "ALLMANN2"
+		},
+		{
+		  "time":  {
+		    "hour":5, 
+		    "min":23
+		  },
+		  "name":"Staad/Autofähre",
+		  "kurzname": "STAAD2"
+		},
       ]
     }
   ]
