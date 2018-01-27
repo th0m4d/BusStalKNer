@@ -155,11 +155,6 @@
             });
           }
 
-          function updateMarkers() {
-            busLayerGroup.clearLayers();
-            addBusMarker("B1");
-          }
-
           function addBusMarker(linienName) {
 
             if(buslinienLayer.getLayers().length == 0) {
@@ -182,6 +177,12 @@
 
             busLayerGroup.addLayer(marker);  
             }
+          }
+
+          function updateMarkers() {
+            busLayerGroup.clearLayers();
+            addBusMarker("B1");
+            addBusMarker("B2");
           }
 
           var map = initMap();
