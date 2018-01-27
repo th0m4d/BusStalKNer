@@ -107,6 +107,12 @@
           });
         }
 
+        function mapToLatLngArray(latLngs) {
+          return latLngs.map(function(latlng) {
+            return [latlng.lat,latlng.lng];
+          });
+        }
+
         var map = initMap();
         
         var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml')
@@ -115,6 +121,7 @@
 
         var fahrplan = loadFahrplan("data/fahrplan.json");
 
+        var b1Marker;
         window.setInterval(function(){
 
           if(buslinienLayer.getLayers().length == 0) {
@@ -130,10 +137,17 @@
           var startStation = getClosestStartStation(linie.departures, hour, min);
           
           var linienLayer = getLinienLayer(buslinienLayer, startStation.name);
-          var myMovingMarker = L.Marker.movingMarker(linienLayer[0].getLatLngs(), [1000], {autostart:true}).on('add', function(e) {
+          var latLngArray = mapToLatLngArray(linienLayer[2].getLatLngs());
+
+          if(b1Marker != undefined) {
+            map.removeLayer(b1Marker);
+          }
+
+          b1Marker = L.Marker.movingMarker(latLngArray, 1000).on('add', function(e) {
             map.setView(e.sourceTarget.getLatLng(), zoomLevel);
-          }).addTo(map);
-          myMovingMarker.start();
+          });
+          map.addLayer(b1Marker);
+          b1Marker.start();
         
         }, 1000);
 
