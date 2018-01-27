@@ -7,7 +7,7 @@
   
     <style type="text/css">
       #map {
-        height: 1000px;
+        height: 500px;
         width: 1000px;
       }
     </style>
@@ -54,6 +54,7 @@
                 min: 0,
                 max: 1440,
                 step: 1,
+                value:302,
                 slide: function(e, ui) {
                     updateTime(ui);
                     updateMarkers();
@@ -95,11 +96,13 @@
           }
 
           function getClosestStartStation(departures, hour, min) {
-            var referenceTime = moment().hours(hour).minutes(min).seconds(0);
+            var referenceTime = moment().hours(hour).minutes(min).seconds(0).unix();
             var closest = departures.reduce(function(prev, curr) {
-              var prevTime = moment().hours(prev.time.hour).minutes(prev.time.min).seconds(0);
-              var currTime = moment().hours(curr.time.hour).minutes(curr.time.min).seconds(0);
-              return (Math.abs(currTime.millisecond() - referenceTime.millisecond()) < Math.abs(prevTime.millisecond() - referenceTime.millisecond()) ? curr : prev);
+              var prevTime = moment().hours(prev.time.hour).minutes(prev.time.min).seconds(0).unix();
+              var currTime = moment().hours(curr.time.hour).minutes(curr.time.min).seconds(0).unix();
+              var absCurrRef = Math.abs(currTime - referenceTime);
+              var absPrevRef = Math.abs(prevTime - referenceTime);
+              return absCurrRef < absPrevRef ? curr : prev;
             },departures[0]);
             return closest;
           }
@@ -168,14 +171,17 @@
             var startStation = getClosestStartStation(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting));
             
             var linienLayer = getLinienLayer(buslinienLayer, startStation.name);
-            var latLngArray = mapToLatLngArray(linienLayer[2].getLatLngs());
+
+            if(linienLayer.length > 0 && linienLayer[0].feature.geometry.type == "LineString") {
+              var latLngArray = mapToLatLngArray(linienLayer[0].getLatLngs());
 
             var marker = new L.marker(latLngArray[0], {
               title: linienName,
               riseOnHover: true
             });
 
-            busLayerGroup.addLayer(marker);
+            busLayerGroup.addLayer(marker);  
+            }
           }
 
           var map = initMap();

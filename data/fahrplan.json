@@ -11,7 +11,7 @@
           "name":"Staadt/Autofähre",
           "kurzname": "STAAD1"
         },
-		{
+		    {
           "time": {
             "hour":5,
             "min":1
@@ -194,7 +194,7 @@
 		  },
 		  "name":"Staad/Autofähre",
 		  "kurzname": "STAAD2"
-		},
+		}
       ]
     }
   ]
