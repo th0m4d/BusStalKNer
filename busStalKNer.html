@@ -11,7 +11,8 @@
     </style>
     <script src="leaflet/leaflet-src.js"></script>
     <script src="leaflet/leaflet-omnivore.min.js"></script>
-    <script type="text/javascript" src="leaflet/movingmarker.js"></script>
+    <script src="moment.min.js"></script>
+    <script src="leaflet/movingmarker.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
   </head>
   <body>
@@ -33,12 +34,12 @@
           return map;
         }
 
-        function loadFahrplan() {
+        function loadFahrplan(url) {
           var json = null;
           $.ajax({
               'async': false,
               'global': false,
-              'url': "data/fahrplan.json",
+              'url': url,
               'dataType': "json",
               'success': function (data) {
                   json = data;
@@ -62,16 +63,25 @@
         }
 
         function getLinie(fahrplan, linienName) {
-          return fahrplan.filter(function(linie) {
+          return fahrplan.find(function(linie) {
             return linie.name == linienName;
           });
         }
 
-        function getClosestSegment(linie, hour, min, sec) {
-          return linie.filter(function(i) {
-            return 0;
-          }).map(function(i) {
-            return 0;
+        function getClosestStartStation(departures, hour, min) {
+          var referenceTime = moment().hours(hour).minutes(min).seconds(0);
+          var closest = departures.reduce(function(prev, curr) {
+            var prevTime = moment().hours(prev.time.hour).minutes(prev.time.min).seconds(0);
+            var currTime = moment().hours(curr.time.hour).minutes(curr.time.min).seconds(0);
+            return (Math.abs(currTime.millisecond() - referenceTime.millisecond()) < Math.abs(prevTime.millisecond() - referenceTime.millisecond()) ? curr : prev);
+          },departures[0]);
+          return closest;
+        }
+
+
+        function getStationsPassedDuring(stationen, hour) {
+          return stationen.filter(function(station) {
+            return station.zeiten.hour == hour;
           });
         }
 
@@ -100,22 +110,23 @@
         }
 
         var map = initMap();
-        var fahrplan = loadFahrplan();
-
+        
         var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml')
         buslinienLayer.addTo(map);
         addPopupToLayer(buslinienLayer);
 
-        // tick every second
-        setInterval(function() {
-          var hour = 5;
-          var min = 1;
-          var sec = 30;
+        var fahrplan = loadFahrplan("data/fahrplan.json");
 
-          var linie = getLinie(fahrplan.linien, "B1");
-          var segment = getClosestSegment(linie, hour, min, sec);
-          
-        }, 1000);
+        var hour = 5;
+        var min = 1;
+        var sec = 30;
+
+        var linie = getLinie(fahrplan.linien, "B1");
+        var startStation = getClosestStartStation(linie.departures, hour, min);
+      
+
+        
+
 
         // var bushaltestellenLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);        
 

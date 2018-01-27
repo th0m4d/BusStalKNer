@@ -1,83 +1,39 @@
 {
   "linien" : [
     {
-      "name":"B1",
-      "stationen": [
+      "name": "B1",
+      "departures": [
         {
+          "time": {
+            "hour":5,
+            "min":1
+          },
           "name":"Allmannsdorf",
-          "kurzname": "ALLMANN1",
-          "zeiten": [
-            {
-              "std":5,
-              "min":1
-            },
-            {
-              "std":5,
-              "min":24
-            },
-            {
-              "std":5, 
-              "min":53
-            },
-            {
-              "std":6,
-              "min":11
-            },
-            {
-              "std":6,
-              "min":27
-            },
-            {
-              "std":6, 
-              "min":42
-            },
-            {
-              "std":6, 
-              "min":57
-            },
-            {
-              "std":7,
-              "min":12
-            }
-          ]
+          "kurzname": "ALLMANN1"
         },
         {
-          "name":"An der Steig",
-          "kurzname": "STEIG1",
-          "zeiten": [
-            {
-              "std":5, 
-              "min":2
-            },
-            {
-              "std":5,
-              "min":25
-            },
-            {
-              "std":5, 
-              "min":54
-            },
-            {
-              "std":6, 
-              "min":12
-            },
-            {
-              "std":6, 
-              "min":28
-            },
-            {
-              "std":6, 
-              "min":43
-            },
-            {
-              "std":6, 
-              "min":58
-            },
-            {
-              "std":7,
-              "min":13
-            }
-          ]
+          "time":  {
+            "hour":5, 
+            "min":2
+          },
+         "name":"An der Steig",
+          "kurzname": "STEIG1"
+        },
+         {
+          "time":  {
+            "hour":5, 
+            "min":3
+          },
+          "name":"Tannerhof",
+          "kurzname": "TANNEN1"
+        },
+        {
+          "time":  {
+            "hour":5, 
+            "min":4
+          },
+          "name":"Salzberg",
+          "kurzname": "SALZBER1"
         }
       ]
     }
