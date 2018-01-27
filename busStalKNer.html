@@ -9,35 +9,117 @@
         width: 1000px;
       }
     </style>
-    <script src="leaflet/leaflet.js"></script>
+    <script src="leaflet/leaflet-src.js"></script>
     <script src="leaflet/leaflet-omnivore.min.js"></script>
     <script type="text/javascript" src="leaflet/movingmarker.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
   </head>
   <body>
     <div id="map"></div>
-    <div id="metadata"></div>
+    <div id="watch"></div>
      <script>
-        var map = L.map('map').setView([47.660496, 9.173579], 14);
 
-        mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        function initMap() {
+          var map = L.map('map').setView([47.660496, 9.173579], 14);
+          mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 
-        var mapLayer = L.tileLayer(
+          var mapLayer = L.tileLayer(
             'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; ' + mapLink + ' Contributors',
             maxZoom: 18,
             });
 
-        map.addLayer(mapLayer);
+          map.addLayer(mapLayer);
+          return map;
+        }
 
-        var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml').addTo(map);
+        function loadFahrplan() {
+          var json = null;
+          $.ajax({
+              'async': false,
+              'global': false,
+              'url': "data/fahrplan.json",
+              'dataType': "json",
+              'success': function (data) {
+                  json = data;
+              }
+          });
+          return json;
+        }
 
-        var buslinienLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);
+        function getFids() {
+          var layers = buslinienLayer.getLayers();
+          if(layers.length == 0) {
+            return;
+          }
 
+          var feature = layers.filter(function(layer){
+              return layer;
+          }).map(function(layer){
+              return layer.feature.properties.FID;
+          });
+          return feature;
+        }
 
-        var myMovingMarker = L.Marker.movingMarker([[47.660496, 9.173579],[47.664879, 9.208797]],
-        						[20000]).addTo(map);
-        myMovingMarker.start();
+        function getLinie(fahrplan, linienName) {
+          return fahrplan.filter(function(linie) {
+            return linie.name == linienName;
+          });
+        }
+
+        function getClosestSegment(linie, hour, min, sec) {
+          return linie.filter(function(i) {
+            return 0;
+          }).map(function(i) {
+            return 0;
+          });
+        }
+
+        function addPopupToLayer(layer) {
+          layer.on('mouseover', function(e){
+            var text = "<ul>";   
+            text = text + "<li>StartKurz: " + e.layer.feature.properties["StartKurz"] + "</li>";
+            text = text + "<li>ZielKurz: " + e.layer.feature.properties["ZielKurz"] + "</li>";
+            text = text + "</ul>";
+
+            if (map) {
+               layerPopup = L.popup()
+                   .setLatLng(e.latlng)
+                   .setContent(text)
+                    .openOn(map);
+            }
+
+          });
+
+          buslinienLayer.on('mouseout', function (e) {
+            if (layerPopup && map) {
+                map.closePopup(layerPopup);
+                layerPopup = null;
+            }
+          });
+        }
+
+        var map = initMap();
+        var fahrplan = loadFahrplan();
+
+        var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml')
+        buslinienLayer.addTo(map);
+        addPopupToLayer(buslinienLayer);
+
+        // tick every second
+        setInterval(function() {
+          var hour = 5;
+          var min = 1;
+          var sec = 30;
+
+          var linie = getLinie(fahrplan.linien, "B1");
+          var segment = getClosestSegment(linie, hour, min, sec);
+          
+        }, 1000);
+
+        // var bushaltestellenLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);        
+
+        // var myMovingMarker = L.Marker.movingMarker([[47.660496, 9.173579],[47.664879, 9.208797]], [20000]).addTo(map);
 
     </script>
   </body>

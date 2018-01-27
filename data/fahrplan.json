@@ -1,0 +1,85 @@
+{
+  "linien" : [
+    {
+      "name":"B1",
+      "stationen": [
+        {
+          "name":"Allmannsdorf",
+          "kurzname": "ALLMANN1",
+          "zeiten": [
+            {
+              "std":5,
+              "min":1
+            },
+            {
+              "std":5,
+              "min":24
+            },
+            {
+              "std":5, 
+              "min":53
+            },
+            {
+              "std":6,
+              "min":11
+            },
+            {
+              "std":6,
+              "min":27
+            },
+            {
+              "std":6, 
+              "min":42
+            },
+            {
+              "std":6, 
+              "min":57
+            },
+            {
+              "std":7,
+              "min":12
+            }
+          ]
+        },
+        {
+          "name":"An der Steig",
+          "kurzname": "STEIG1",
+          "zeiten": [
+            {
+              "std":5, 
+              "min":2
+            },
+            {
+              "std":5,
+              "min":25
+            },
+            {
+              "std":5, 
+              "min":54
+            },
+            {
+              "std":6, 
+              "min":12
+            },
+            {
+              "std":6, 
+              "min":28
+            },
+            {
+              "std":6, 
+              "min":43
+            },
+            {
+              "std":6, 
+              "min":58
+            },
+            {
+              "std":7,
+              "min":13
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
