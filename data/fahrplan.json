@@ -194,9 +194,9 @@
 		  },
 		  "name":"Staad/Autofähre",
 		  "kurzname": "STAAD2"
-		},
+		}
       ]
-    }
+    },
 	{
 	  "name": "B2",
 	  "departures": [
@@ -423,6 +423,8 @@
 		  },
 		  "name":"Wollmatingen/Radolfzellerstr.",
 		  "kurzname": "WORADOL2"
-		},
-  ]
+		}
+	  ]
+	}
+ ]
 }
