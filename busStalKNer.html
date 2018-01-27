@@ -19,9 +19,10 @@
     <div id="map"></div>
     <div id="watch"></div>
      <script>
+        var zoomLevel = 15;
 
         function initMap() {
-          var map = L.map('map').setView([47.660496, 9.173579], 14);
+          var map = L.map('map').setView([47.660496, 9.173579], zoomLevel);
           mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 
           var mapLayer = L.tileLayer(
@@ -48,20 +49,6 @@
           return json;
         }
 
-        function getFids() {
-          var layers = buslinienLayer.getLayers();
-          if(layers.length == 0) {
-            return;
-          }
-
-          var feature = layers.filter(function(layer){
-              return layer;
-          }).map(function(layer){
-              return layer.feature.properties.FID;
-          });
-          return feature;
-        }
-
         function getLinie(fahrplan, linienName) {
           return fahrplan.find(function(linie) {
             return linie.name == linienName;
@@ -78,6 +65,17 @@
           return closest;
         }
 
+        function getLinienLayer(buslinienLayer, startStationName) {
+          var layers = buslinienLayer.getLayers();
+          if(layers.length == 0) {
+            return;
+          }
+
+          var feature = layers.filter(function(layer){
+              return layer.feature.properties.StartLang == startStationName;
+          });
+          return feature;
+        }
 
         function getStationsPassedDuring(stationen, hour) {
           return stationen.filter(function(station) {
@@ -117,20 +115,34 @@
 
         var fahrplan = loadFahrplan("data/fahrplan.json");
 
-        var hour = 5;
-        var min = 1;
-        var sec = 30;
+        window.setInterval(function(){
 
-        var linie = getLinie(fahrplan.linien, "B1");
-        var startStation = getClosestStartStation(linie.departures, hour, min);
-      
+          if(buslinienLayer.getLayers().length == 0) {
+            console.log("layers not loaded.");
+            return;
+          }
+
+          var hour = 5;
+          var min = 1;
+          var sec = 30;
+
+          var linie = getLinie(fahrplan.linien, "B1");
+          var startStation = getClosestStartStation(linie.departures, hour, min);
+          
+          var linienLayer = getLinienLayer(buslinienLayer, startStation.name);
+          var myMovingMarker = L.Marker.movingMarker(linienLayer[0].getLatLngs(), [1000], {autostart:true}).on('add', function(e) {
+            map.setView(e.sourceTarget.getLatLng(), zoomLevel);
+          }).addTo(map);
+          myMovingMarker.start();
+        
+        }, 1000);
 
         
 
 
         // var bushaltestellenLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);        
 
-        // var myMovingMarker = L.Marker.movingMarker([[47.660496, 9.173579],[47.664879, 9.208797]], [20000]).addTo(map);
+        
 
     </script>
   </body>
