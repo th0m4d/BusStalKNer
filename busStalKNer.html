@@ -188,7 +188,7 @@
           var map = initMap();
           map.addLayer(busLayerGroup);
           
-          var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml')
+          var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml');
           buslinienLayer.addTo(map);
           addPopupToLayer(buslinienLayer);
 
