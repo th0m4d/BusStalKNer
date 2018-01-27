@@ -1,1262 +1,1477 @@
 {
-  "linien" : [
+  "linien":[
     {
-      "name": "B1",
-      "departures": [
+      "name":"B1",
+      "departures":[
         {
-          "time": {
+          "time":{
             "hour":5,
             "min":0
           },
           "name":"Staadt/Autofähre",
-          "kurzname": "STAAD1"
+          "kurzname":"STAAD1"
         },
-		    {
-          "time": {
+        {
+          "time":{
             "hour":5,
             "min":1
           },
           "name":"Allmannsdorf",
-          "kurzname": "ALLMANN1"
+          "kurzname":"ALLMANN1"
         },
         {
-          "time":  {
-            "hour":5, 
+          "time":{
+            "hour":5,
             "min":2
           },
-         "name":"An der Steig",
-          "kurzname": "STEIG1"
+          "name":"An der Steig",
+          "kurzname":"STEIG1"
         },
-         {
-          "time":  {
-            "hour":5, 
+        {
+          "time":{
+            "hour":5,
             "min":3
           },
           "name":"Tannenhof",
-          "kurzname": "TANNEN1"
+          "kurzname":"TANNEN1"
         },
         {
-          "time":  {
-            "hour":5, 
+          "time":{
+            "hour":5,
             "min":4
           },
           "name":"Salzberg",
-          "kurzname": "SALZBER1"
+          "kurzname":"SALZBER1"
         },
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":5
-		  },
-		  "name":"Klinikum Konstanz",
-		  "kurzname": "KRANKEN"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":6
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":7
-		  },
-		  "name":"Schottenplatz",
-		  "kurzname": "SCHOTTEN"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":8
-		  },
-		  "name":"Bürgerbüro",
-		  "kurzname": "BÜRGER"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":9
-		  },
-		  "name":"Lutherplatz",
-		  "kurzname": "LUTHER"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":11
-		  },
-		  "name":"Schultheißstraße",
-		  "kurzname": "SCHULTH1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":12
-		  },
-		  "name":"Döbelestraße",
-		  "kurzname": "DÖBELE1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":12
-		  },
-		  "name":"Döbele",
-		  "kurzname": "DÖBELE"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":13
-		  },
-		  "name":"Schnetztor",
-		  "kurzname": "SCHNETZ"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":14
-		  },
-		  "name":"Bodanplatz",
-		  "kurzname": "BODAN"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":15
-		  },
-		  "name":"Bahnhof",
-		  "kurzname": "BHF"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":16
-		  },
-		  "name":"Konzilstr./Theater",
-		  "kurzname": "KONZIL"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":17
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":18
-		  },
-		  "name":"Klinikum Konstanz",
-		  "kurzname": "KLINIKUM2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":19
-		  },
-		  "name":"Salzberg",
-		  "kurzname": "SALZBER2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":20
-		  },
-		  "name":"Tannenhof",
-		  "kurzname": "TANNEN2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":21
-		  },
-		  "name":"An der Steig",
-		  "kurzname": "STEIG2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":22
-		  },
-		  "name":"Allmansdorf",
-		  "kurzname": "ALLMANN2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":23
-		  },
-		  "name":"Staad/Autofähre",
-		  "kurzname": "STAAD2"
-		},
-		{
-	      "time": {
-	        "hour":5,
-	        "min":23
-	      },
-	      "name":"Staadt/Autofähre",
-	      "kurzname": "STAAD1"
-	    },
-		    {
-	      "time": {
-	        "hour":5,
-	        "min":24
-	      },
-	      "name":"Allmannsdorf",
-	      "kurzname": "ALLMANN1"
-	    },
-	    {
-	      "time":  {
-	        "hour":5, 
-	        "min":25
-	      },
-	     "name":"An der Steig",
-	      "kurzname": "STEIG1"
-	    },
-	     {
-	      "time":  {
-	        "hour":5, 
-	        "min":26
-	      },
-	      "name":"Tannenhof",
-	      "kurzname": "TANNEN1"
-	    },
-	    {
-	      "time":  {
-	        "hour":5, 
-	        "min":27
-	      },
-	      "name":"Salzberg",
-	      "kurzname": "SALZBER1"
-	    },
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":28
-		  },
-		  "name":"Klinikum Konstanz",
-		  "kurzname": "KRANKEN"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":29
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":30
-		  },
-		  "name":"Schottenplatz",
-		  "kurzname": "SCHOTTEN"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":31
-		  },
-		  "name":"Bürgerbüro",
-		  "kurzname": "BÜRGER"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":32
-		  },
-		  "name":"Lutherplatz",
-		  "kurzname": "LUTHER"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":34
-		  },
-		  "name":"Schultheißstraße",
-		  "kurzname": "SCHULTH1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":35
-		  },
-		  "name":"Döbelestraße",
-		  "kurzname": "DÖBELE1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":35
-		  },
-		  "name":"Döbele",
-		  "kurzname": "DÖBELE"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":36
-		  },
-		  "name":"Schnetztor",
-		  "kurzname": "SCHNETZ"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":37
-		  },
-		  "name":"Bodanplatz",
-		  "kurzname": "BODAN"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":38
-		  },
-		  "name":"Bahnhof",
-		  "kurzname": "BHF"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":55
-		  },
-		  "name":"Konzilstr./Theater",
-		  "kurzname": "KONZIL"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":56
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":57
-		  },
-		  "name":"Klinikum Konstanz",
-		  "kurzname": "KLINIKUM2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":58
-		  },
-		  "name":"Salzberg",
-		  "kurzname": "SALZBER2"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":59
-		  },
-		  "name":"Tannenhof",
-		  "kurzname": "TANNEN2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":0
-		  },
-		  "name":"An der Steig",
-		  "kurzname": "STEIG2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":1
-		  },
-		  "name":"Allmansdorf",
-		  "kurzname": "ALLMANN2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":2
-		  },
-		  "name":"Staad/Autofähre",
-		  "kurzname": "STAAD2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":52
-		  },
-		  "name":"Staadt/Autofähre",
-		  "kurzname": "STAAD1"
-		},
-		    {
-		  "time": {
-		    "hour":5,
-		    "min":53
-		  },
-		  "name":"Allmannsdorf",
-		  "kurzname": "ALLMANN1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":54
-		  },
-		 "name":"An der Steig",
-		  "kurzname": "STEIG1"
-		},
-		 {
-		  "time":  {
-		    "hour":5, 
-		    "min":55
-		  },
-		  "name":"Tannenhof",
-		  "kurzname": "TANNEN1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":56
-		  },
-		  "name":"Salzberg",
-		  "kurzname": "SALZBER1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":57
-		  },
-		  "name":"Klinikum Konstanz",
-		  "kurzname": "KRANKEN"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":58
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN1"
-		},
-		{
-		  "time":  {
-		    "hour":5, 
-		    "min":59
-		  },
-		  "name":"Schottenplatz",
-		  "kurzname": "SCHOTTEN"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":0
-		  },
-		  "name":"Bürgerbüro",
-		  "kurzname": "BÜRGER"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":1
-		  },
-		  "name":"Lutherplatz",
-		  "kurzname": "LUTHER"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":3
-		  },
-		  "name":"Schultheißstraße",
-		  "kurzname": "SCHULTH1"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":4
-		  },
-		  "name":"Döbelestraße",
-		  "kurzname": "DÖBELE1"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":4
-		  },
-		  "name":"Döbele",
-		  "kurzname": "DÖBELE"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":5
-		  },
-		  "name":"Schnetztor",
-		  "kurzname": "SCHNETZ"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":6
-		  },
-		  "name":"Bodanplatz",
-		  "kurzname": "BODAN"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":7
-		  },
-		  "name":"Bahnhof",
-		  "kurzname": "BHF"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":17
-		  },
-		  "name":"Konzilstr./Theater",
-		  "kurzname": "KONZIL"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":18
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":19
-		  },
-		  "name":"Klinikum Konstanz",
-		  "kurzname": "KLINIKUM2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":20
-		  },
-		  "name":"Salzberg",
-		  "kurzname": "SALZBER2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":21
-		  },
-		  "name":"Tannenhof",
-		  "kurzname": "TANNEN2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":22
-		  },
-		  "name":"An der Steig",
-		  "kurzname": "STEIG2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":23
-		  },
-		  "name":"Allmansdorf",
-		  "kurzname": "ALLMANN2"
-		},
-		{
-		  "time":  {
-		    "hour":6, 
-		    "min":24
-		  },
-		  "name":"Staad/Autofähre",
-		  "kurzname": "STAAD2"
-		}
-	  ]
-	},
-	{
-	  "name": "B2",
-	  "departures": [
-	    {
-	      "time": {
-	        "hour":5,
-	        "min":4
-	      },
-	      "name":"Wollmatingen/Radolfzellerstr.",
-	      "kurzname": "WORADOL1"
-	    },
-		{
-		  "time": {
-		    "hour":5,
-		    "min":5
-		  },
-		  "name":"Wollmatingen/Rathaus",
-		  "kurzname": "WOLLMRA"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":6
-		  },
-		  "name":"Bodan",
-		  "kurzname": "BODAN1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":7
-		  },
-		  "name":"Hardtstr./Fürstenberg",
-		  "kurzname": "HARDTFÜ1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":8
-		  },
-		  "name":"Heroséstraße",
-		  "kurzname": "HEROSE1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":9
-		  },
-		  "name":"Fürstenberg",
-		  "kurzname": "FÜRS1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":10
-		  },
-		  "name":"Taborweg",
-		  "kurzname": "TABOR1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":11
-		  },
-		  "name":"Friedhof",
-		  "kurzname": "FRIEDHO1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":12
-		  },
-		  "name":"Bismarcksteig",
-		  "kurzname": "BISMARC1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":13
-		  },
-		  "name":"Zähringerplatz",
-		  "kurzname": "ZÄHRING1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":15
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":16
-		  },
-		  "name":"Schottenplatz",
-		  "kurzname": "SCHOTTEN"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":17
-		  },
-		  "name":"Bürgerbüro",
-		  "kurzname": "SCHULST1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":18
-		  },
-		  "name":"Schnetztor",
-		  "kurzname": "SCHNETZ"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":19
-		  },
-		  "name":"Bodanplatz",
-		  "kurzname": "BODANPL2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":20
-		  },
-		  "name":"Bahnhof",
-		  "kurzname": "BHF"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":21
-		  },
-		  "name":"Konzilstr./Theater",
-		  "kurzname": "KONZIL"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":22
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":23
-		  },
-		  "name":"Zähringerplatz",
-		  "kurzname": "ZÄHRING2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":24
-		  },
-		  "name":"Bismarcksteig",
-		  "kurzname": "BISMARC2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":25
-		  },
-		  "name":"Friedhof",
-		  "kurzname": "FRIEDHO2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":26
-		  },
-		  "name":"Taborweg",
-		  "kurzname": "TABOR2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":27
-		  },
-		  "name":"Fürstenberg",
-		  "kurzname": "FÜRS2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":28
-		  },
-		  "name":"Heroséstraße",
-		  "kurzname": "HEROSE2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":29
-		  },
-		  "name":"Hardtstr./Fürstenberg",
-		  "kurzname": "HARDTFÜ2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":30
-		  },
-		  "name":"BODAN",
-		  "kurzname": "BODAN2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":31
-		  },
-		  "name":"Wollmatingen/Rathaus",
-		  "kurzname": "WOLLMRA"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":32
-		  },
-		  "name":"Wollmatingen/Radolfzellerstr.",
-		  "kurzname": "WORADOL2"
-		},
-	    {
-	      "time": {
-	        "hour":5,
-	        "min":28
-	      },
-	      "name":"Wollmatingen/Radolfzellerstr.",
-	      "kurzname": "WORADOL1"
-	    },
-		{
-		  "time": {
-		    "hour":5,
-		    "min":29
-		  },
-		  "name":"Wollmatingen/Rathaus",
-		  "kurzname": "WOLLMRA"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":30
-		  },
-		  "name":"Bodan",
-		  "kurzname": "BODAN1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":31
-		  },
-		  "name":"Hardtstr./Fürstenberg",
-		  "kurzname": "HARDTFÜ1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":32
-		  },
-		  "name":"Heroséstraße",
-		  "kurzname": "HEROSE1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":33
-		  },
-		  "name":"Fürstenberg",
-		  "kurzname": "FÜRS1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":34
-		  },
-		  "name":"Taborweg",
-		  "kurzname": "TABOR1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":35
-		  },
-		  "name":"Friedhof",
-		  "kurzname": "FRIEDHO1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":36
-		  },
-		  "name":"Bismarcksteig",
-		  "kurzname": "BISMARC1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":37
-		  },
-		  "name":"Zähringerplatz",
-		  "kurzname": "ZÄHRING1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":39
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":40
-		  },
-		  "name":"Schottenplatz",
-		  "kurzname": "SCHOTTEN"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":41
-		  },
-		  "name":"Bürgerbüro",
-		  "kurzname": "SCHULST1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":42
-		  },
-		  "name":"Schnetztor",
-		  "kurzname": "SCHNETZ"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":43
-		  },
-		  "name":"Bodanplatz",
-		  "kurzname": "BODANPL2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":44
-		  },
-		  "name":"Bahnhof",
-		  "kurzname": "BHF"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":45
-		  },
-		  "name":"Konzilstr./Theater",
-		  "kurzname": "KONZIL"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":46
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":47
-		  },
-		  "name":"Zähringerplatz",
-		  "kurzname": "ZÄHRING2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":48
-		  },
-		  "name":"Bismarcksteig",
-		  "kurzname": "BISMARC2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":49
-		  },
-		  "name":"Friedhof",
-		  "kurzname": "FRIEDHO2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":50
-		  },
-		  "name":"Taborweg",
-		  "kurzname": "TABOR2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":51
-		  },
-		  "name":"Fürstenberg",
-		  "kurzname": "FÜRS2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":52
-		  },
-		  "name":"Heroséstraße",
-		  "kurzname": "HEROSE2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":53
-		  },
-		  "name":"Hardtstr./Fürstenberg",
-		  "kurzname": "HARDTFÜ2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":54
-		  },
-		  "name":"BODAN",
-		  "kurzname": "BODAN2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":55
-		  },
-		  "name":"Wollmatingen/Rathaus",
-		  "kurzname": "WOLLMRA"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":56
-		  },
-		  "name":"Wollmatingen/Radolfzellerstr.",
-		  "kurzname": "WORADOL2"
-		},
-	    {
-	      "time": {
-	        "hour":5,
-	        "min":47
-	      },
-	      "name":"Wollmatingen/Radolfzellerstr.",
-	      "kurzname": "WORADOL1"
-	    },
-		{
-		  "time": {
-		    "hour":5,
-		    "min":48
-		  },
-		  "name":"Wollmatingen/Rathaus",
-		  "kurzname": "WOLLMRA"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":49
-		  },
-		  "name":"Bodan",
-		  "kurzname": "BODAN1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":50
-		  },
-		  "name":"Hardtstr./Fürstenberg",
-		  "kurzname": "HARDTFÜ1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":51
-		  },
-		  "name":"Heroséstraße",
-		  "kurzname": "HEROSE1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":52
-		  },
-		  "name":"Fürstenberg",
-		  "kurzname": "FÜRS1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":53
-		  },
-		  "name":"Taborweg",
-		  "kurzname": "TABOR1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":54
-		  },
-		  "name":"Friedhof",
-		  "kurzname": "FRIEDHO1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":55
-		  },
-		  "name":"Bismarcksteig",
-		  "kurzname": "BISMARC1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":56
-		  },
-		  "name":"Zähringerplatz",
-		  "kurzname": "ZÄHRING1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":58
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN1"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":59
-		  },
-		  "name":"Schottenplatz",
-		  "kurzname": "SCHOTTEN"
-		},
-		{
-		  "time": {
-		    "hour":6,
-		    "min":0
-		  },
-		  "name":"Bürgerbüro",
-		  "kurzname": "SCHULST1"
-		},
-		{
-		  "time": {
-		    "hour":6,
-		    "min":1
-		  },
-		  "name":"Schnetztor",
-		  "kurzname": "SCHNETZ"
-		},
-		{
-		  "time": {
-		    "hour":6,
-		    "min":2
-		  },
-		  "name":"Bodanplatz",
-		  "kurzname": "BODANPL2"
-		},
-		{
-		  "time": {
-		    "hour":6,
-		    "min":3
-		  },
-		  "name":"Bahnhof",
-		  "kurzname": "BHF"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":4
-		  },
-		  "name":"Konzilstr./Theater",
-		  "kurzname": "KONZIL"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":5
-		  },
-		  "name":"Sternenplatz",
-		  "kurzname": "STERNEN2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":6
-		  },
-		  "name":"Zähringerplatz",
-		  "kurzname": "ZÄHRING2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":7
-		  },
-		  "name":"Bismarcksteig",
-		  "kurzname": "BISMARC2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":8
-		  },
-		  "name":"Friedhof",
-		  "kurzname": "FRIEDHO2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":9
-		  },
-		  "name":"Taborweg",
-		  "kurzname": "TABOR2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":10
-		  },
-		  "name":"Fürstenberg",
-		  "kurzname": "FÜRS2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":11
-		  },
-		  "name":"Heroséstraße",
-		  "kurzname": "HEROSE2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":12
-		  },
-		  "name":"Hardtstr./Fürstenberg",
-		  "kurzname": "HARDTFÜ2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":13
-		  },
-		  "name":"BODAN",
-		  "kurzname": "BODAN2"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":14
-		  },
-		  "name":"Wollmatingen/Rathaus",
-		  "kurzname": "WOLLMRA"
-		},
-		{
-		  "time": {
-		    "hour":5,
-		    "min":15
-		  },
-		  "name":"Wollmatingen/Radolfzellerstr.",
-		  "kurzname": "WORADOL2"
-		}
-	  ]
-	}
+        {
+          "time":{
+            "hour":5,
+            "min":5
+          },
+          "name":"Klinikum Konstanz",
+          "kurzname":"KRANKEN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":6
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":7
+          },
+          "name":"Schottenplatz",
+          "kurzname":"SCHOTTEN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":8
+          },
+          "name":"Bürgerbüro",
+          "kurzname":"BÜRGER"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":9
+          },
+          "name":"Lutherplatz",
+          "kurzname":"LUTHER"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":11
+          },
+          "name":"Schultheißstraße",
+          "kurzname":"SCHULTH1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":12
+          },
+          "name":"Döbelestraße",
+          "kurzname":"DÖBELE1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":12
+          },
+          "name":"Döbele",
+          "kurzname":"DÖBELE"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":13
+          },
+          "name":"Schnetztor",
+          "kurzname":"SCHNETZ"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":14
+          },
+          "name":"Bodanplatz",
+          "kurzname":"BODAN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":15
+          },
+          "name":"Bahnhof",
+          "kurzname":"BHF"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":16
+          },
+          "name":"Konzilstr./Theater",
+          "kurzname":"KONZIL"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":17
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":18
+          },
+          "name":"Klinikum Konstanz",
+          "kurzname":"KLINIKUM2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":19
+          },
+          "name":"Salzberg",
+          "kurzname":"SALZBER2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":20
+          },
+          "name":"Tannenhof",
+          "kurzname":"TANNEN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":21
+          },
+          "name":"An der Steig",
+          "kurzname":"STEIG2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":22
+          },
+          "name":"Allmansdorf",
+          "kurzname":"ALLMANN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":23
+          },
+          "name":"Staad/Autofähre",
+          "kurzname":"STAAD2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":23
+          },
+          "name":"Staadt/Autofähre",
+          "kurzname":"STAAD1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":24
+          },
+          "name":"Allmannsdorf",
+          "kurzname":"ALLMANN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":25
+          },
+          "name":"An der Steig",
+          "kurzname":"STEIG1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":26
+          },
+          "name":"Tannenhof",
+          "kurzname":"TANNEN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":27
+          },
+          "name":"Salzberg",
+          "kurzname":"SALZBER1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":28
+          },
+          "name":"Klinikum Konstanz",
+          "kurzname":"KRANKEN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":29
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":30
+          },
+          "name":"Schottenplatz",
+          "kurzname":"SCHOTTEN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":31
+          },
+          "name":"Bürgerbüro",
+          "kurzname":"BÜRGER"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":32
+          },
+          "name":"Lutherplatz",
+          "kurzname":"LUTHER"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":34
+          },
+          "name":"Schultheißstraße",
+          "kurzname":"SCHULTH1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":35
+          },
+          "name":"Döbelestraße",
+          "kurzname":"DÖBELE1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":35
+          },
+          "name":"Döbele",
+          "kurzname":"DÖBELE"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":36
+          },
+          "name":"Schnetztor",
+          "kurzname":"SCHNETZ"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":37
+          },
+          "name":"Bodanplatz",
+          "kurzname":"BODAN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":38
+          },
+          "name":"Bahnhof",
+          "kurzname":"BHF"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":55
+          },
+          "name":"Konzilstr./Theater",
+          "kurzname":"KONZIL"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":56
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":57
+          },
+          "name":"Klinikum Konstanz",
+          "kurzname":"KLINIKUM2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":58
+          },
+          "name":"Salzberg",
+          "kurzname":"SALZBER2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":59
+          },
+          "name":"Tannenhof",
+          "kurzname":"TANNEN2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":0
+          },
+          "name":"An der Steig",
+          "kurzname":"STEIG2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":1
+          },
+          "name":"Allmansdorf",
+          "kurzname":"ALLMANN2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":2
+          },
+          "name":"Staad/Autofähre",
+          "kurzname":"STAAD2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":52
+          },
+          "name":"Staadt/Autofähre",
+          "kurzname":"STAAD1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":53
+          },
+          "name":"Allmannsdorf",
+          "kurzname":"ALLMANN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":54
+          },
+          "name":"An der Steig",
+          "kurzname":"STEIG1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":55
+          },
+          "name":"Tannenhof",
+          "kurzname":"TANNEN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":56
+          },
+          "name":"Salzberg",
+          "kurzname":"SALZBER1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":57
+          },
+          "name":"Klinikum Konstanz",
+          "kurzname":"KRANKEN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":58
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":59
+          },
+          "name":"Schottenplatz",
+          "kurzname":"SCHOTTEN"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":0
+          },
+          "name":"Bürgerbüro",
+          "kurzname":"BÜRGER"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":1
+          },
+          "name":"Lutherplatz",
+          "kurzname":"LUTHER"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":3
+          },
+          "name":"Schultheißstraße",
+          "kurzname":"SCHULTH1"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":4
+          },
+          "name":"Döbelestraße",
+          "kurzname":"DÖBELE1"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":4
+          },
+          "name":"Döbele",
+          "kurzname":"DÖBELE"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":5
+          },
+          "name":"Schnetztor",
+          "kurzname":"SCHNETZ"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":6
+          },
+          "name":"Bodanplatz",
+          "kurzname":"BODAN"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":7
+          },
+          "name":"Bahnhof",
+          "kurzname":"BHF"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":17
+          },
+          "name":"Konzilstr./Theater",
+          "kurzname":"KONZIL"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":18
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":19
+          },
+          "name":"Klinikum Konstanz",
+          "kurzname":"KLINIKUM2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":20
+          },
+          "name":"Salzberg",
+          "kurzname":"SALZBER2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":21
+          },
+          "name":"Tannenhof",
+          "kurzname":"TANNEN2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":22
+          },
+          "name":"An der Steig",
+          "kurzname":"STEIG2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":23
+          },
+          "name":"Allmansdorf",
+          "kurzname":"ALLMANN2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":24
+          },
+          "name":"Staad/Autofähre",
+          "kurzname":"STAAD2"
+        }
+      ]
+    },
+    {
+      "name":"B2",
+      "departures":[
+        {
+          "time":{
+            "hour":5,
+            "min":4
+          },
+          "name":"Wollmatingen/Radolfzellerstr.",
+          "kurzname":"WORADOL1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":5
+          },
+          "name":"Wollmatingen/Rathaus",
+          "kurzname":"WOLLMRA"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":6
+          },
+          "name":"Bodan",
+          "kurzname":"BODAN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":7
+          },
+          "name":"Hardtstr./Fürstenberg",
+          "kurzname":"HARDTFÜ1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":8
+          },
+          "name":"Heroséstraße",
+          "kurzname":"HEROSE1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":9
+          },
+          "name":"Fürstenberg",
+          "kurzname":"FÜRS1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":10
+          },
+          "name":"Taborweg",
+          "kurzname":"TABOR1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":11
+          },
+          "name":"Friedhof",
+          "kurzname":"FRIEDHO1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":12
+          },
+          "name":"Bismarcksteig",
+          "kurzname":"BISMARC1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":13
+          },
+          "name":"Zähringerplatz",
+          "kurzname":"ZÄHRING1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":15
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":16
+          },
+          "name":"Schottenplatz",
+          "kurzname":"SCHOTTEN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":17
+          },
+          "name":"Bürgerbüro",
+          "kurzname":"SCHULST1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":18
+          },
+          "name":"Schnetztor",
+          "kurzname":"SCHNETZ"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":19
+          },
+          "name":"Bodanplatz",
+          "kurzname":"BODANPL2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":20
+          },
+          "name":"Bahnhof",
+          "kurzname":"BHF"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":21
+          },
+          "name":"Konzilstr./Theater",
+          "kurzname":"KONZIL"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":22
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":23
+          },
+          "name":"Zähringerplatz",
+          "kurzname":"ZÄHRING2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":24
+          },
+          "name":"Bismarcksteig",
+          "kurzname":"BISMARC2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":25
+          },
+          "name":"Friedhof",
+          "kurzname":"FRIEDHO2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":26
+          },
+          "name":"Taborweg",
+          "kurzname":"TABOR2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":27
+          },
+          "name":"Fürstenberg",
+          "kurzname":"FÜRS2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":28
+          },
+          "name":"Heroséstraße",
+          "kurzname":"HEROSE2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":29
+          },
+          "name":"Hardtstr./Fürstenberg",
+          "kurzname":"HARDTFÜ2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":30
+          },
+          "name":"BODAN",
+          "kurzname":"BODAN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":31
+          },
+          "name":"Wollmatingen/Rathaus",
+          "kurzname":"WOLLMRA"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":32
+          },
+          "name":"Wollmatingen/Radolfzellerstr.",
+          "kurzname":"WORADOL2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":28
+          },
+          "name":"Wollmatingen/Radolfzellerstr.",
+          "kurzname":"WORADOL1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":29
+          },
+          "name":"Wollmatingen/Rathaus",
+          "kurzname":"WOLLMRA"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":30
+          },
+          "name":"Bodan",
+          "kurzname":"BODAN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":31
+          },
+          "name":"Hardtstr./Fürstenberg",
+          "kurzname":"HARDTFÜ1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":32
+          },
+          "name":"Heroséstraße",
+          "kurzname":"HEROSE1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":33
+          },
+          "name":"Fürstenberg",
+          "kurzname":"FÜRS1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":34
+          },
+          "name":"Taborweg",
+          "kurzname":"TABOR1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":35
+          },
+          "name":"Friedhof",
+          "kurzname":"FRIEDHO1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":36
+          },
+          "name":"Bismarcksteig",
+          "kurzname":"BISMARC1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":37
+          },
+          "name":"Zähringerplatz",
+          "kurzname":"ZÄHRING1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":39
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":40
+          },
+          "name":"Schottenplatz",
+          "kurzname":"SCHOTTEN"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":41
+          },
+          "name":"Bürgerbüro",
+          "kurzname":"SCHULST1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":42
+          },
+          "name":"Schnetztor",
+          "kurzname":"SCHNETZ"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":43
+          },
+          "name":"Bodanplatz",
+          "kurzname":"BODANPL2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":44
+          },
+          "name":"Bahnhof",
+          "kurzname":"BHF"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":45
+          },
+          "name":"Konzilstr./Theater",
+          "kurzname":"KONZIL"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":46
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":47
+          },
+          "name":"Zähringerplatz",
+          "kurzname":"ZÄHRING2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":48
+          },
+          "name":"Bismarcksteig",
+          "kurzname":"BISMARC2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":49
+          },
+          "name":"Friedhof",
+          "kurzname":"FRIEDHO2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":50
+          },
+          "name":"Taborweg",
+          "kurzname":"TABOR2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":51
+          },
+          "name":"Fürstenberg",
+          "kurzname":"FÜRS2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":52
+          },
+          "name":"Heroséstraße",
+          "kurzname":"HEROSE2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":53
+          },
+          "name":"Hardtstr./Fürstenberg",
+          "kurzname":"HARDTFÜ2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":54
+          },
+          "name":"BODAN",
+          "kurzname":"BODAN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":55
+          },
+          "name":"Wollmatingen/Rathaus",
+          "kurzname":"WOLLMRA"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":56
+          },
+          "name":"Wollmatingen/Radolfzellerstr.",
+          "kurzname":"WORADOL2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":47
+          },
+          "name":"Wollmatingen/Radolfzellerstr.",
+          "kurzname":"WORADOL1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":48
+          },
+          "name":"Wollmatingen/Rathaus",
+          "kurzname":"WOLLMRA"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":49
+          },
+          "name":"Bodan",
+          "kurzname":"BODAN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":50
+          },
+          "name":"Hardtstr./Fürstenberg",
+          "kurzname":"HARDTFÜ1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":51
+          },
+          "name":"Heroséstraße",
+          "kurzname":"HEROSE1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":52
+          },
+          "name":"Fürstenberg",
+          "kurzname":"FÜRS1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":53
+          },
+          "name":"Taborweg",
+          "kurzname":"TABOR1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":54
+          },
+          "name":"Friedhof",
+          "kurzname":"FRIEDHO1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":55
+          },
+          "name":"Bismarcksteig",
+          "kurzname":"BISMARC1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":56
+          },
+          "name":"Zähringerplatz",
+          "kurzname":"ZÄHRING1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":58
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN1"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":59
+          },
+          "name":"Schottenplatz",
+          "kurzname":"SCHOTTEN"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":0
+          },
+          "name":"Bürgerbüro",
+          "kurzname":"SCHULST1"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":1
+          },
+          "name":"Schnetztor",
+          "kurzname":"SCHNETZ"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":2
+          },
+          "name":"Bodanplatz",
+          "kurzname":"BODANPL2"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":3
+          },
+          "name":"Bahnhof",
+          "kurzname":"BHF"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":4
+          },
+          "name":"Konzilstr./Theater",
+          "kurzname":"KONZIL"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":5
+          },
+          "name":"Sternenplatz",
+          "kurzname":"STERNEN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":6
+          },
+          "name":"Zähringerplatz",
+          "kurzname":"ZÄHRING2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":7
+          },
+          "name":"Bismarcksteig",
+          "kurzname":"BISMARC2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":8
+          },
+          "name":"Friedhof",
+          "kurzname":"FRIEDHO2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":9
+          },
+          "name":"Taborweg",
+          "kurzname":"TABOR2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":10
+          },
+          "name":"Fürstenberg",
+          "kurzname":"FÜRS2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":11
+          },
+          "name":"Heroséstraße",
+          "kurzname":"HEROSE2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":12
+          },
+          "name":"Hardtstr./Fürstenberg",
+          "kurzname":"HARDTFÜ2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":13
+          },
+          "name":"BODAN",
+          "kurzname":"BODAN2"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":14
+          },
+          "name":"Wollmatingen/Rathaus",
+          "kurzname":"WOLLMRA"
+        },
+        {
+          "time":{
+            "hour":5,
+            "min":15
+          },
+          "name":"Wollmatingen/Radolfzellerstr.",
+          "kurzname":"WORADOL2"
+        }
+      ]
+    },
+    {
+      "name":"B6",
+      "departures":[
+        {
+          "time":{
+            "hour":6,
+            "min":30
+          },
+          "name":"Feursteinstraße"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":31
+          },
+          "name":"Wollmatingen/Kindlebildstr"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":47
+          },
+          "name":"Wallhausen/Hafen"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":48
+          },
+          "name":"Dingelsdorf/Klausenhorn"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":49
+          },
+          "name":"Dingelsdorf/Wallhauser Str."
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":50
+          },
+          "name":"Dingelsdorf/Ortsmitte"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":51
+          },
+          "name":"Dingelsdorf Thingolthalle"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":52
+          },
+          "name":"Oberdorf"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":54
+          },
+          "name":"Litzelstetten/Zum Purren"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":55
+          },
+          "name":"Litzelstetten/Tankstelle"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":56
+          },
+          "name":"Litzelstetten/Waldfriedhof"
+        },
+        {
+          "time":{
+            "hour":6,
+            "min":59
+          },
+          "name":"Am Bettenberg"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":0
+          },
+          "name":"Litzelstetter Straße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":2
+          },
+          "name":"Wollmatingen/Rathaus"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":3
+          },
+          "name":"Bodan/Riedstraße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":4
+          },
+          "name":"Riedstraße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":5
+          },
+          "name":"Bahnhof Wollmatingen"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":6
+          },
+          "name":"Byk-Gulden-Straße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":8
+          },
+          "name":"Fritz-Arnold-Straße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":9
+          },
+          "name":"Carl-Benz-Straße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":10
+          },
+          "name":"Rudolf-Diesel-Straße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":11
+          },
+          "name":"Line-Eid-Straße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":12
+          },
+          "name":"Stromeyersdorf"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":14
+          },
+          "name":"Neuwerk"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":15
+          },
+          "name":"Stadtwerke"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":17
+          },
+          "name":"Gottmannplatz"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":18
+          },
+          "name":"Markgrafenstraße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":19
+          },
+          "name":"Tenbrinkstraße"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":20
+          },
+          "name":"Hallenbad"
+        },
+        {
+          "time":{
+            "hour":7,
+            "min":21
+          },
+          "name":"Sternenplatz/Spanierstraße"
+        }
+      ]
+    }
   ]
- }
+}

@@ -76,7 +76,7 @@
             $("#slider").slider({
                 range: false,
                 min: 290,
-                max: 370,
+                max: 441,
                 step: 1,
                 value:302,
                 slide: function(e, ui) {
@@ -191,23 +191,28 @@
 
             var linienLayer = getLinienLayer(buslinienLayer, startStation.name);
 
-              var latLngArray = mapToLatLngArray(linienLayer[0].getLatLngs());
+            if(linienLayer.length == 0 || linienLayer[0].feature.geometry.type != "LineString") {
+              return;
+            }
 
-              var iconColor = "color" + linienName;
+            var latLngArray = mapToLatLngArray(linienLayer[0].getLatLngs());
 
-              var marker = new L.marker(latLngArray[0], {
-                title: linienName,
-                riseOnHover: true,
-                icon: L.divIcon({className: 'my-div-icon ' + iconColor, html: linienName})
-              });
+            var iconColor = "color" + linienName;
 
-              busLayerGroup.addLayer(marker);
+            var marker = new L.marker(latLngArray[0], {
+              title: linienName,
+              riseOnHover: true,
+              icon: L.divIcon({className: 'my-div-icon ' + iconColor, html: linienName})
+            });
+
+            busLayerGroup.addLayer(marker);
           }
 
           function updateMarkers() {
             busLayerGroup.clearLayers();
             addBusMarker("B1");
             addBusMarker("B2");
+            addBusMarker("B6");
           }
 
           var map = initMap();
