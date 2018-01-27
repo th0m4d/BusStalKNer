@@ -808,9 +808,6 @@
 		  "name":"Wollmatingen/Radolfzellerstr.",
 		  "kurzname": "WORADOL2"
 		},
-	{
-	  "name": "B2",
-	  "departures": [
 	    {
 	      "time": {
 	        "hour":5,
@@ -1034,12 +1031,7 @@
 		  },
 		  "name":"Wollmatingen/Radolfzellerstr.",
 		  "kurzname": "WORADOL2"
-		}
-	  ]
-	},
-	{
-	  "name": "B2",
-	  "departures": [
+		},
 	    {
 	      "time": {
 	        "hour":5,
@@ -1268,5 +1260,3 @@
 	}
   ]
  }
-]
-}
