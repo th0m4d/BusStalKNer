@@ -4,11 +4,35 @@
     <title>BusStalKNer</title>
     <link rel="stylesheet" href="leaflet/leaflet.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  
+
     <style type="text/css">
       #map {
         height: 500px;
         width: 1000px;
+      }
+
+      .colorB1 {
+        background-color: red;
+      }
+      .colorB2 {
+        background-color: black;
+      }
+      .colorB6 {
+        background-color: pink;
+      }
+
+      .my-div-icon {
+        border-radius: 4px;
+         border: 1px solid rgb(255, 255, 255);
+         display: inline-block;
+         cursor: pointer;
+         color: rgb(255, 255, 255);
+         font-family: Arial;
+         font-size: 12px;
+         padding: 2px 8px 8px 5px;
+         text-decoration: none;
+         text-shadow: rgb(178, 62, 53) 0px 1px 0px;
+
       }
     </style>
     <script src="leaflet/leaflet-src.js"></script>
@@ -24,7 +48,7 @@
       <div id="time"></div>
     </div>
     <div id="map"></div>
-    
+
      <script>
         $(function() {
 
@@ -48,11 +72,11 @@
           }
 
           function loadSlider() {
-            $('#time').html('00:00');
+            $('#time').html('05:02');
             $("#slider").slider({
                 range: false,
-                min: 0,
-                max: 1440,
+                min: 290,
+                max: 370,
                 step: 1,
                 value:302,
                 slide: function(e, ui) {
@@ -127,7 +151,7 @@
 
           function addPopupToLayer(layer) {
             layer.on('mouseover', function(e){
-              var text = "<ul>";   
+              var text = "<ul>";
               text = text + "<li>StartKurz: " + e.layer.feature.properties["StartKurz"] + "</li>";
               text = text + "<li>ZielKurz: " + e.layer.feature.properties["ZielKurz"] + "</li>";
               text = text + "</ul>";
@@ -164,19 +188,20 @@
 
             var linie = getLinie(fahrplan.linien, linienName);
             var startStation = getClosestStartStation(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting));
-            
+
             var linienLayer = getLinienLayer(buslinienLayer, startStation.name);
 
-            if(linienLayer.length > 0 && linienLayer[0].feature.geometry.type == "LineString") {
               var latLngArray = mapToLatLngArray(linienLayer[0].getLatLngs());
 
-            var marker = new L.marker(latLngArray[0], {
-              title: linienName,
-              riseOnHover: true
-            });
+              var iconColor = "color" + linienName;
 
-            busLayerGroup.addLayer(marker);  
-            }
+              var marker = new L.marker(latLngArray[0], {
+                title: linienName,
+                riseOnHover: true,
+                icon: L.divIcon({className: 'my-div-icon ' + iconColor, html: linienName})
+              });
+
+              busLayerGroup.addLayer(marker);
           }
 
           function updateMarkers() {
@@ -187,8 +212,8 @@
 
           var map = initMap();
           map.addLayer(busLayerGroup);
-          
           var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml');
+          var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml')
           buslinienLayer.addTo(map);
           addPopupToLayer(buslinienLayer);
 
@@ -196,7 +221,7 @@
 
           loadSlider();
 
-          // var bushaltestellenLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);        
+          // var bushaltestellenLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);
 
         }); // jquery end
 
