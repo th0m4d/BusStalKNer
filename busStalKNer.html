@@ -3,6 +3,8 @@
   <head>
     <title>BusStalKNer</title>
     <link rel="stylesheet" href="leaflet/leaflet.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
     <style type="text/css">
       #map {
         height: 1000px;
@@ -14,149 +16,182 @@
     <script src="moment.min.js"></script>
     <script src="leaflet/movingmarker.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
+    <div style="height:50px;padding:30px">
+      <div id="slider" style="width: 600px"></div>
+      <div id="time"></div>
+    </div>
     <div id="map"></div>
-    <div id="watch"></div>
+    
      <script>
-        var zoomLevel = 15;
+        $(function() {
 
-        function initMap() {
-          var map = L.map('map').setView([47.660496, 9.173579], zoomLevel);
-          mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+          var zoomLevel = 12;
+          var hoursSetting = "00";
+          var minutesSetting = "00";
+          var busLayerGroup = L.layerGroup();
 
-          var mapLayer = L.tileLayer(
-            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; ' + mapLink + ' Contributors',
-            maxZoom: 18,
+          function initMap() {
+            var map = L.map('map').setView([47.660496, 9.173579], zoomLevel);
+            mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+
+            var mapLayer = L.tileLayer(
+              'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; ' + mapLink + ' Contributors',
+              maxZoom: 18,
+              });
+
+            map.addLayer(mapLayer);
+            return map;
+          }
+
+          function loadSlider() {
+            $('#time').html('00:00');
+            $("#slider").slider({
+                range: false,
+                min: 0,
+                max: 1440,
+                step: 1,
+                slide: function(e, ui) {
+                    updateTime(ui);
+                    updateMarkers();
+                }
+            });
+          }
+
+          function updateTime(ui) {
+            var hours = Math.floor(ui.value / 60);
+            var minutes = ui.value - (hours * 60);
+
+            if(hours.toString().length == 1) hours = '0' + hours;
+            if(minutes.toString().length == 1) minutes = '0' + minutes;
+
+            hoursSetting = hours;
+            minutesSetting = minutes;
+
+            $('#time').html(hours+':'+minutes);
+          }
+
+          function loadFahrplan(url) {
+            var json = null;
+            $.ajax({
+                'async': false,
+                'global': false,
+                'url': url,
+                'dataType': "json",
+                'success': function (data) {
+                    json = data;
+                }
+            });
+            return json;
+          }
+
+          function getLinie(fahrplan, linienName) {
+            return fahrplan.find(function(linie) {
+              return linie.name == linienName;
+            });
+          }
+
+          function getClosestStartStation(departures, hour, min) {
+            var referenceTime = moment().hours(hour).minutes(min).seconds(0);
+            var closest = departures.reduce(function(prev, curr) {
+              var prevTime = moment().hours(prev.time.hour).minutes(prev.time.min).seconds(0);
+              var currTime = moment().hours(curr.time.hour).minutes(curr.time.min).seconds(0);
+              return (Math.abs(currTime.millisecond() - referenceTime.millisecond()) < Math.abs(prevTime.millisecond() - referenceTime.millisecond()) ? curr : prev);
+            },departures[0]);
+            return closest;
+          }
+
+          function getLinienLayer(buslinienLayer, startStationName) {
+            var layers = buslinienLayer.getLayers();
+            if(layers.length == 0) {
+              return;
+            }
+
+            var feature = layers.filter(function(layer){
+                return layer.feature.properties.StartLang == startStationName;
+            });
+            return feature;
+          }
+
+          function getStationsPassedDuring(stationen, hour) {
+            return stationen.filter(function(station) {
+              return station.zeiten.hour == hour;
+            });
+          }
+
+          function addPopupToLayer(layer) {
+            layer.on('mouseover', function(e){
+              var text = "<ul>";   
+              text = text + "<li>StartKurz: " + e.layer.feature.properties["StartKurz"] + "</li>";
+              text = text + "<li>ZielKurz: " + e.layer.feature.properties["ZielKurz"] + "</li>";
+              text = text + "</ul>";
+
+              if (map) {
+                 layerPopup = L.popup()
+                     .setLatLng(e.latlng)
+                     .setContent(text)
+                      .openOn(map);
+              }
+
             });
 
-          map.addLayer(mapLayer);
-          return map;
-        }
-
-        function loadFahrplan(url) {
-          var json = null;
-          $.ajax({
-              'async': false,
-              'global': false,
-              'url': url,
-              'dataType': "json",
-              'success': function (data) {
-                  json = data;
+            buslinienLayer.on('mouseout', function (e) {
+              if (layerPopup && map) {
+                  map.closePopup(layerPopup);
+                  layerPopup = null;
               }
-          });
-          return json;
-        }
-
-        function getLinie(fahrplan, linienName) {
-          return fahrplan.find(function(linie) {
-            return linie.name == linienName;
-          });
-        }
-
-        function getClosestStartStation(departures, hour, min) {
-          var referenceTime = moment().hours(hour).minutes(min).seconds(0);
-          var closest = departures.reduce(function(prev, curr) {
-            var prevTime = moment().hours(prev.time.hour).minutes(prev.time.min).seconds(0);
-            var currTime = moment().hours(curr.time.hour).minutes(curr.time.min).seconds(0);
-            return (Math.abs(currTime.millisecond() - referenceTime.millisecond()) < Math.abs(prevTime.millisecond() - referenceTime.millisecond()) ? curr : prev);
-          },departures[0]);
-          return closest;
-        }
-
-        function getLinienLayer(buslinienLayer, startStationName) {
-          var layers = buslinienLayer.getLayers();
-          if(layers.length == 0) {
-            return;
+            });
           }
 
-          var feature = layers.filter(function(layer){
-              return layer.feature.properties.StartLang == startStationName;
-          });
-          return feature;
-        }
-
-        function getStationsPassedDuring(stationen, hour) {
-          return stationen.filter(function(station) {
-            return station.zeiten.hour == hour;
-          });
-        }
-
-        function addPopupToLayer(layer) {
-          layer.on('mouseover', function(e){
-            var text = "<ul>";   
-            text = text + "<li>StartKurz: " + e.layer.feature.properties["StartKurz"] + "</li>";
-            text = text + "<li>ZielKurz: " + e.layer.feature.properties["ZielKurz"] + "</li>";
-            text = text + "</ul>";
-
-            if (map) {
-               layerPopup = L.popup()
-                   .setLatLng(e.latlng)
-                   .setContent(text)
-                    .openOn(map);
-            }
-
-          });
-
-          buslinienLayer.on('mouseout', function (e) {
-            if (layerPopup && map) {
-                map.closePopup(layerPopup);
-                layerPopup = null;
-            }
-          });
-        }
-
-        function mapToLatLngArray(latLngs) {
-          return latLngs.map(function(latlng) {
-            return [latlng.lat,latlng.lng];
-          });
-        }
-
-        var map = initMap();
-        
-        var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml')
-        buslinienLayer.addTo(map);
-        addPopupToLayer(buslinienLayer);
-
-        var fahrplan = loadFahrplan("data/fahrplan.json");
-
-        var b1Marker;
-        window.setInterval(function(){
-
-          if(buslinienLayer.getLayers().length == 0) {
-            console.log("layers not loaded.");
-            return;
+          function mapToLatLngArray(latLngs) {
+            return latLngs.map(function(latlng) {
+              return [latlng.lat,latlng.lng];
+            });
           }
 
-          var hour = 5;
-          var min = 1;
-          var sec = 30;
+          function updateMarkers() {
+            busLayerGroup.clearLayers();
+            addBusMarker("B1");
+          }
 
-          var linie = getLinie(fahrplan.linien, "B1");
-          var startStation = getClosestStartStation(linie.departures, hour, min);
+          function addBusMarker(linienName) {
+
+            if(buslinienLayer.getLayers().length == 0) {
+              console.log("layers not loaded.");
+              return;
+            }
+
+            var linie = getLinie(fahrplan.linien, linienName);
+            var startStation = getClosestStartStation(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting));
+            
+            var linienLayer = getLinienLayer(buslinienLayer, startStation.name);
+            var latLngArray = mapToLatLngArray(linienLayer[2].getLatLngs());
+
+            var marker = new L.marker(latLngArray[0], {
+              title: linienName,
+              riseOnHover: true
+            });
+
+            busLayerGroup.addLayer(marker);
+          }
+
+          var map = initMap();
+          map.addLayer(busLayerGroup);
           
-          var linienLayer = getLinienLayer(buslinienLayer, startStation.name);
-          var latLngArray = mapToLatLngArray(linienLayer[2].getLatLngs());
+          var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml')
+          buslinienLayer.addTo(map);
+          addPopupToLayer(buslinienLayer);
 
-          if(b1Marker != undefined) {
-            map.removeLayer(b1Marker);
-          }
+          var fahrplan = loadFahrplan("data/fahrplan.json");
 
-          b1Marker = L.Marker.movingMarker(latLngArray, 1000).on('add', function(e) {
-            map.setView(e.sourceTarget.getLatLng(), zoomLevel);
-          });
-          map.addLayer(b1Marker);
-          b1Marker.start();
-        
-        }, 1000);
+          loadSlider();
 
-        
+          // var bushaltestellenLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);        
 
-
-        // var bushaltestellenLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);        
-
-        
+        }); // jquery end
 
     </script>
   </body>

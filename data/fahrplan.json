@@ -194,8 +194,237 @@
 		  },
 		  "name":"Staad/Autofähre",
 		  "kurzname": "STAAD2"
-		},
+		}
       ]
-    }
-  ]
+    },
+	{
+	  "name": "B2",
+	  "departures": [
+	    {
+	      "time": {
+	        "hour":5,
+	        "min":4
+	      },
+	      "name":"Wollmatingen/Radolfzellerstr.",
+	      "kurzname": "WORADOL1"
+	    },
+		{
+		  "time": {
+		    "hour":5,
+		    "min":5
+		  },
+		  "name":"Wollmatingen/Rathaus",
+		  "kurzname": "WOLLMRA"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":6
+		  },
+		  "name":"Bodan",
+		  "kurzname": "BODAN1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":7
+		  },
+		  "name":"Hardtstr./Fürstenberg",
+		  "kurzname": "HARDTFÜ1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":8
+		  },
+		  "name":"Heroséstraße",
+		  "kurzname": "HEROSE1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":9
+		  },
+		  "name":"Fürstenberg",
+		  "kurzname": "FÜRS1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":10
+		  },
+		  "name":"Taborweg",
+		  "kurzname": "TABOR1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":11
+		  },
+		  "name":"Friedhof",
+		  "kurzname": "FRIEDHO1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":12
+		  },
+		  "name":"Bismarcksteig",
+		  "kurzname": "BISMARC1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":13
+		  },
+		  "name":"Zähringerplatz",
+		  "kurzname": "ZÄHRING1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":15
+		  },
+		  "name":"Sternenplatz",
+		  "kurzname": "STERNEN1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":16
+		  },
+		  "name":"Schottenplatz",
+		  "kurzname": "SCHOTTEN"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":17
+		  },
+		  "name":"Bürgerbüro",
+		  "kurzname": "SCHULST1"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":18
+		  },
+		  "name":"Schnetztor",
+		  "kurzname": "SCHNETZ"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":19
+		  },
+		  "name":"Bodanplatz",
+		  "kurzname": "BODANPL2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":20
+		  },
+		  "name":"Bahnhof",
+		  "kurzname": "BHF"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":0
+		  },
+		  "name":"Konzilstr./Theater",
+		  "kurzname": "KONZIL"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":22
+		  },
+		  "name":"Sternenplatz",
+		  "kurzname": "STERNEN2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":23
+		  },
+		  "name":"Zähringerplatz",
+		  "kurzname": "ZÄHRING2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":24
+		  },
+		  "name":"Bismarcksteig",
+		  "kurzname": "BISMARC2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":25
+		  },
+		  "name":"Friedhof",
+		  "kurzname": "FRIEDHO2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":26
+		  },
+		  "name":"Taborweg",
+		  "kurzname": "TABOR2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":27
+		  },
+		  "name":"Fürstenberg",
+		  "kurzname": "FÜRS2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":28
+		  },
+		  "name":"Heroséstraße",
+		  "kurzname": "HEROSE2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":29
+		  },
+		  "name":"Hardtstr./Fürstenberg",
+		  "kurzname": "HARDTFÜ2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":30
+		  },
+		  "name":"BODAN",
+		  "kurzname": "BODAN2"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":31
+		  },
+		  "name":"Wollmatingen/Rathaus",
+		  "kurzname": "WOLLMRA"
+		},
+		{
+		  "time": {
+		    "hour":5,
+		    "min":32
+		  },
+		  "name":"Wollmatingen/Radolfzellerstr.",
+		  "kurzname": "WORADOL2"
+		}
+	  ]
+	}
+ ]
 }
