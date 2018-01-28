@@ -8,7 +8,8 @@
     <style type="text/css">
       #map {
         height: 500px;
-        width: 1000px;
+        width: 100%;
+        position: relative;
       }
 
       .colorB1 {
@@ -40,12 +41,15 @@
     <script src="moment.min.js"></script>
     <script src="leaflet/movingmarker.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
+    <script src="leaflet.geometryutil.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
     <div style="height:50px;padding:30px">
       <div id="slider" style="width: 600px"></div>
       <div id="time"></div>
+      Zeit Eingeben:<input id="timeinput" type="text" value="00:00" size="5" maxlength="5"><input type="button" id="submit" value="Setzen" />
+  
     </div>
     <div id="map"></div>
 
@@ -56,6 +60,14 @@
           var hoursSetting = "00";
           var minutesSetting = "00";
           var busLayerGroup = L.layerGroup();
+
+          function updateMarkers() {
+            busLayerGroup.clearLayers();
+
+            fahrplan.linien.forEach( function(linie){
+              addBusMarker(linie.startLang);
+            });
+          }
 
           function initMap() {
             var map = L.map('map').setView([47.660496, 9.173579], zoomLevel);
@@ -80,15 +92,25 @@
                 step: 1,
                 value:302,
                 slide: function(e, ui) {
-                    updateTime(ui);
+                    updateTime(ui.value);
                     updateMarkers();
                 }
             });
           }
 
-          function updateTime(ui) {
-            var hours = Math.floor(ui.value / 60);
-            var minutes = ui.value - (hours * 60);
+          function initTextInput() {
+            $('#submit').click(function(){
+              if($( "#timeinput" ).val().length == 5 && $( "#timeinput" ).val().indexOf(':') > -1) {
+                var time = $( "#timeinput" ).val().split(":");
+                updateTime((parseInt(time[0])*60) + parseInt(time[1]));
+                updateMarkers();
+              }
+            });
+          }
+
+          function updateTime(value) {
+            var hours = Math.floor(value / 60);
+            var minutes = value - (hours * 60);
 
             if(hours.toString().length == 1) hours = '0' + hours;
             if(minutes.toString().length == 1) minutes = '0' + minutes;
@@ -115,12 +137,13 @@
 
           function getLinie(fahrplan, linienName) {
             return fahrplan.find(function(linie) {
-              return linie.name == linienName;
+              return linie.startLang == linienName;
             });
           }
 
           function getClosestStartStation(departures, hour, min) {
             var referenceTime = moment().hours(hour).minutes(min).seconds(0).unix();
+
             var closest = departures.reduce(function(prev, curr) {
               var prevTime = moment().hours(prev.time.hour).minutes(prev.time.min).seconds(0).unix();
               var currTime = moment().hours(curr.time.hour).minutes(curr.time.min).seconds(0).unix();
@@ -128,17 +151,19 @@
               var absPrevRef = Math.abs(prevTime - referenceTime);
               return absCurrRef < absPrevRef ? curr : prev;
             },departures[0]);
+
             return closest;
           }
 
           function getLinienLayer(buslinienLayer, startStationName) {
             var layers = buslinienLayer.getLayers();
             if(layers.length == 0) {
+              console.log("No layers loaded.");
               return;
             }
 
             var feature = layers.filter(function(layer){
-                return layer.feature.properties.StartLang == startStationName;
+                return layer.feature.properties.StartKurz == startStationName;
             });
             return feature;
           }
@@ -152,8 +177,11 @@
           function addPopupToLayer(layer) {
             layer.on('mouseover', function(e){
               var text = "<ul>";
-              text = text + "<li>StartKurz: " + e.layer.feature.properties["StartKurz"] + "</li>";
-              text = text + "<li>ZielKurz: " + e.layer.feature.properties["ZielKurz"] + "</li>";
+              for (var prop in e.layer.feature.properties) {
+                  if (e.layer.feature.properties.hasOwnProperty(prop)) {
+                    text = text + "<li>" + prop + ": " + e.layer.feature.properties[prop] + "</li>";
+                  }
+              }
               text = text + "</ul>";
 
               if (map) {
@@ -162,7 +190,6 @@
                      .setContent(text)
                       .openOn(map);
               }
-
             });
 
             buslinienLayer.on('mouseout', function (e) {
@@ -189,9 +216,10 @@
             var linie = getLinie(fahrplan.linien, linienName);
             var startStation = getClosestStartStation(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting));
 
-            var linienLayer = getLinienLayer(buslinienLayer, startStation.name);
+            var linienLayer = getLinienLayer(buslinienLayer, startStation.startKurz);
 
-            if(linienLayer.length == 0 || linienLayer[0].feature.geometry.type != "LineString") {
+            if(linienLayer.length == 0) {
+              console.log("No layer found for station:" + startStation.startKurz)
               return;
             }
 
@@ -208,23 +236,16 @@
             busLayerGroup.addLayer(marker);
           }
 
-          function updateMarkers() {
-            busLayerGroup.clearLayers();
-            addBusMarker("B1");
-            addBusMarker("B2");
-            addBusMarker("B6");
-          }
-
           var map = initMap();
           map.addLayer(busLayerGroup);
           var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml');
-          var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml')
           buslinienLayer.addTo(map);
           addPopupToLayer(buslinienLayer);
 
           var fahrplan = loadFahrplan("data/fahrplan.json");
 
           loadSlider();
+          initTextInput();
 
           // var bushaltestellenLayer = omnivore.kml('/data/Bushaltestelle.kml').addTo(map);
 
