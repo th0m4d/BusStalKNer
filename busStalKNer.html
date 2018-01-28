@@ -39,16 +39,15 @@
     <script src="leaflet/leaflet-src.js"></script>
     <script src="leaflet/leaflet-omnivore.min.js"></script>
     <script src="moment.min.js"></script>
-    <script src="leaflet/movingmarker.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
     <script src="leaflet.geometryutil.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="jquery-ui.js"></script>
   </head>
   <body>
     <div style="height:50px;padding:30px">
       <div id="slider" style="width: 600px"></div>
       <div id="time"></div>
-      Zeit Eingeben:<input id="timeinput" type="text" value="00:00" size="5" maxlength="5"><input type="button" id="submit" value="Setzen" />
+      Zeit Eingeben:<input id="timeinput" type="text" value="00:00:00" size="8" maxlength="8"><input type="button" id="submit" value="Setzen" />
   
     </div>
     <div id="map"></div>
@@ -59,6 +58,7 @@
           var zoomLevel = 12;
           var hoursSetting = "00";
           var minutesSetting = "00";
+          var secondsSetting = "00";
           var busLayerGroup = L.layerGroup();
 
           function updateMarkers() {
@@ -87,10 +87,10 @@
             $('#time').html('05:02');
             $("#slider").slider({
                 range: false,
-                min: 290,
-                max: 441,
-                step: 1,
-                value:302,
+                min: 18000,
+                max: 23400,
+                step: 10,
+                value:18000,
                 slide: function(e, ui) {
                     updateTime(ui.value);
                     updateMarkers();
@@ -100,7 +100,7 @@
 
           function initTextInput() {
             $('#submit').click(function(){
-              if($( "#timeinput" ).val().length == 5 && $( "#timeinput" ).val().indexOf(':') > -1) {
+              if($( "#timeinput" ).val().length == 8 && $( "#timeinput" ).val().indexOf(':') > -1) {
                 var time = $( "#timeinput" ).val().split(":");
                 updateTime((parseInt(time[0])*60) + parseInt(time[1]));
                 updateMarkers();
@@ -109,16 +109,19 @@
           }
 
           function updateTime(value) {
-            var hours = Math.floor(value / 60);
-            var minutes = value - (hours * 60);
+            var hours = Math.floor(value / 3600);
+            var minutes = Math.floor((value - (hours * 3600)) / 60);
+            var seconds = value - (hours * 3600) - (minutes * 60);
 
             if(hours.toString().length == 1) hours = '0' + hours;
             if(minutes.toString().length == 1) minutes = '0' + minutes;
+            if(seconds.toString().length == 1) seconds = '0' + seconds;
 
             hoursSetting = hours;
             minutesSetting = minutes;
+            secondsSetting = seconds;
 
-            $('#time').html(hours+':'+minutes);
+            $('#time').html(hours+':'+minutes+':'+seconds);
           }
 
           function loadFahrplan(url) {
@@ -155,7 +158,7 @@
             return closest;
           }
 
-          function getLinienLayer(buslinienLayer, startStationName) {
+          function getLinienLayer(buslinienLayer, startStationName, zielStationName, linienName) {
             var layers = buslinienLayer.getLayers();
             if(layers.length == 0) {
               console.log("No layers loaded.");
@@ -163,7 +166,10 @@
             }
 
             var feature = layers.filter(function(layer){
-                return layer.feature.properties.StartKurz == startStationName;
+                var props = layer.feature.properties;
+                return  props.StartKurz == startStationName &&
+                        props.ZielKurz == zielStationName && 
+                layer.feature.properties[linienName] == 1;
             });
             return feature;
           }
@@ -214,23 +220,30 @@
             }
 
             var linie = getLinie(fahrplan.linien, linienName);
-            var startStation = getClosestStartStation(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting));
-
-            var linienLayer = getLinienLayer(buslinienLayer, startStation.startKurz);
+            var station = getClosestStartStation(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting));
+            var linienLayer = getLinienLayer(buslinienLayer, station.startKurz, station.zielKurz, linienName);
 
             if(linienLayer.length == 0) {
-              console.log("No layer found for station:" + startStation.startKurz)
+              console.log("No layer found for station:" + station.startKurz)
               return;
             }
 
             var latLngArray = mapToLatLngArray(linienLayer[0].getLatLngs());
+            addMarker(latLngArray[0], linienName);
+            
+          }
 
-            var iconColor = "color" + linienName;
+          function getInterpolationRatio(linienLayer, ) {
 
-            var marker = new L.marker(latLngArray[0], {
-              title: linienName,
+          }
+
+          function addMarker(coordinates, name) {
+            var iconColor = "color" + name;
+
+            var marker = new L.marker(coordinates, {
+              title: name,
               riseOnHover: true,
-              icon: L.divIcon({className: 'my-div-icon ' + iconColor, html: linienName})
+              icon: L.divIcon({className: 'my-div-icon ' + iconColor, html: name})
             });
 
             busLayerGroup.addLayer(marker);
