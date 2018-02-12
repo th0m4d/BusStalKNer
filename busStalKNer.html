@@ -47,19 +47,13 @@
     <div style="height:50px;padding:30px">
       <div id="slider" style="width: 600px"></div>
       <div id="time"></div>
-      Zeit Eingeben:<input id="timeinput" type="text" value="00:00:00" size="8" maxlength="8"><input type="button" id="submit" value="Setzen" />
+      Zeit Eingeben:<input id="timeinput" type="text" value="05:02:30" size="8" maxlength="8"><input type="button" id="submit" value="Setzen" />
   
     </div>
     <div id="map"></div>
 
      <script>
         $(function() {
-
-          var zoomLevel = 12;
-          var hoursSetting = "00";
-          var minutesSetting = "00";
-          var secondsSetting = "00";
-          var busLayerGroup = L.layerGroup();
 
           function updateMarkers() {
             busLayerGroup.clearLayers();
@@ -84,7 +78,7 @@
           }
 
           function loadSlider() {
-            $('#time').html('05:02');
+            $('#time').html('05:02:30');
             $("#slider").slider({
                 range: false,
                 min: 18000,
@@ -102,7 +96,7 @@
             $('#submit').click(function(){
               if($( "#timeinput" ).val().length == 8 && $( "#timeinput" ).val().indexOf(':') > -1) {
                 var time = $( "#timeinput" ).val().split(":");
-                updateTime((parseInt(time[0])*60) + parseInt(time[1]));
+                updateTime((parseInt(time[0])*60*60) + parseInt(time[1]*60) + parseInt(time[2]));
                 updateMarkers();
               }
             });
@@ -117,9 +111,9 @@
             if(minutes.toString().length == 1) minutes = '0' + minutes;
             if(seconds.toString().length == 1) seconds = '0' + seconds;
 
-            hoursSetting = hours;
-            minutesSetting = minutes;
-            secondsSetting = seconds;
+            hoursSetting = hours.toString();
+            minutesSetting = minutes.toString();
+            secondsSetting = seconds.toString();
 
             $('#time').html(hours+':'+minutes+':'+seconds);
           }
@@ -142,6 +136,30 @@
             return fahrplan.find(function(linie) {
               return linie.startLang == linienName;
             });
+          }
+
+          function getClosestTwoStations(departures, hour, min, sec) {
+            var refTime = moment().hours(hour).minutes(min).seconds(sec).unix();
+            var closest = null
+            var closestAbs = Infinity
+            var secondClosest = null
+            var secondClosestAbs = Infinity
+
+            departures.forEach(function(dep) {
+              var depTime = moment().hours(dep.time.hour).minutes(dep.time.min).seconds(0).unix();
+              var curAbs = Math.abs(refTime - depTime)
+              
+              if( curAbs < closestAbs) {
+                closest = dep
+                closestAbs = curAbs
+              } else if (curAbs < secondClosestAbs) {
+                secondClosest = dep
+                secondClosestAbs = curAbs
+              }
+              
+            });
+
+            return [closest, secondClosest]
           }
 
           function getClosestStartStation(departures, hour, min) {
@@ -220,21 +238,39 @@
             }
 
             var linie = getLinie(fahrplan.linien, linienName);
-            var station = getClosestStartStation(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting));
-            var linienLayer = getLinienLayer(buslinienLayer, station.startKurz, station.zielKurz, linienName);
+            // var station = getClosestStartStation(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting));
+
+            var closestTwo = getClosestTwoStations(linie.departures, parseInt(hoursSetting), parseInt(minutesSetting), parseInt(secondsSetting));
+
+            var linienLayer = getLinienLayer(buslinienLayer, closestTwo[0].startKurz, closestTwo[0].zielKurz, linienName);
 
             if(linienLayer.length == 0) {
-              console.log("No layer found for station:" + station.startKurz)
+              console.log("No layer found for station")
               return;
             }
 
             var latLngArray = mapToLatLngArray(linienLayer[0].getLatLngs());
-            addMarker(latLngArray[0], linienName);
+
+            var ratio = getInterpolationRatio(closestTwo, hoursSetting, minutesSetting, secondsSetting);
+
+            var coordinate = L.GeometryUtil.interpolateOnLine(map, latLngArray, ratio)
+            console.log(coordinate.latLng);
+
+            addMarker(coordinate.latLng, linienName);
             
           }
 
-          function getInterpolationRatio(linienLayer, ) {
+          function getInterpolationRatio(closestTwo, hour, min, sec) {
+            var timeA = moment().hours(closestTwo[0].time.hour).minutes(closestTwo[0].time.min).seconds(0);
+            var timeB = moment().hours(closestTwo[1].time.hour).minutes(closestTwo[1].time.min).seconds(0);
+            var currentTime = moment().hours(hour).minutes(min).seconds(sec);
+            var start = moment.min(timeA, timeB);
+            var end = moment.max(timeA, timeB);
 
+            var part = currentTime.unix() - start.unix()
+            var whole = end.unix() - start.unix()
+
+            return part / whole;
           }
 
           function addMarker(coordinates, name) {
@@ -249,7 +285,14 @@
             busLayerGroup.addLayer(marker);
           }
 
+          var zoomLevel = 12;
+          var hoursSetting = "05";
+          var minutesSetting = "02";
+          var secondsSetting = "30";
+          var busLayerGroup = L.layerGroup();
+          var MAX_TIMESTAMP = 8640000000000000;
           var map = initMap();
+          
           map.addLayer(busLayerGroup);
           var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml');
           buslinienLayer.addTo(map);
