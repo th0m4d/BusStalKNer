@@ -18,8 +18,14 @@
       .colorB2 {
         background-color: black;
       }
-      .colorB6 {
+      .colorB3 {
+        background-color: green;
+      }
+      .colorB5 {
         background-color: pink;
+      }
+      .colorB12 {
+        background-color: orange;
       }
 
       .my-div-icon {
@@ -48,7 +54,7 @@
       <div id="slider" style="width: 600px"></div>
       <div id="time"></div>
       Zeit Eingeben:<input id="timeinput" type="text" value="05:02:30" size="8" maxlength="8"><input type="button" id="submit" value="Setzen" />
-  
+
     </div>
     <div id="map"></div>
 
@@ -59,7 +65,7 @@
             busLayerGroup.clearLayers();
 
             fahrplan.linien.forEach( function(linie){
-              addBusMarker(linie.startLang);
+              addBusMarker(linie.name);
             });
           }
 
@@ -134,7 +140,7 @@
 
           function getLinie(fahrplan, linienName) {
             return fahrplan.find(function(linie) {
-              return linie.startLang == linienName;
+              return linie.name == linienName;
             });
           }
 
@@ -148,7 +154,7 @@
             departures.forEach(function(dep) {
               var depTime = moment().hours(dep.time.hour).minutes(dep.time.min).seconds(0).unix();
               var curAbs = Math.abs(refTime - depTime)
-              
+
               if( curAbs < closestAbs) {
                 closest = dep
                 closestAbs = curAbs
@@ -156,7 +162,7 @@
                 secondClosest = dep
                 secondClosestAbs = curAbs
               }
-              
+
             });
 
             return [closest, secondClosest]
@@ -186,7 +192,7 @@
             var feature = layers.filter(function(layer){
                 var props = layer.feature.properties;
                 return  props.StartKurz == startStationName &&
-                        props.ZielKurz == zielStationName && 
+                        props.ZielKurz == zielStationName &&
                 layer.feature.properties[linienName] == 1;
             });
             return feature;
@@ -257,7 +263,7 @@
             console.log(coordinate.latLng);
 
             addMarker(coordinate.latLng, linienName);
-            
+
           }
 
           function getInterpolationRatio(closestTwo, hour, min, sec) {
@@ -292,7 +298,7 @@
           var busLayerGroup = L.layerGroup();
           var MAX_TIMESTAMP = 8640000000000000;
           var map = initMap();
-          
+
           map.addLayer(busLayerGroup);
           var buslinienLayer = omnivore.kml('/data/Buslinie_WGS84.kml');
           buslinienLayer.addTo(map);
